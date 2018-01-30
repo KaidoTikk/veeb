@@ -30,3 +30,10 @@ echo 'Sõidan koolist kesklinna bussiga number '.$bussiNumber.'<br />';
 echo 'Jõuan kesklinna '.$soiduKestvus.' tunniga<br />';
 echo 'Midagi konstantset? P1 = '.NUMBER_P1.'<br />';
 //tingimuslaused
+$ilmväljas = 'Sajab lund';
+if($ilmväljas == 'sajab lund'){
+    echo 'Tuleb minna sauna<br />';
+}
+else {
+    echo 'Pole mõttet sauna minna<br />';
+}
