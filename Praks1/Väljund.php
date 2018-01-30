@@ -16,3 +16,8 @@
 echo "Aine - Veebiprogrameerimine"; // käsu lõpp - ;
 print "<br>"; // Reavahetus br ehk break
 print "Valikaine";
+// muutujate defineerimine
+$eesNimi = "Kaido"; // Eesnimi, string
+$pereNimi = "Tikk"; // Perenimi, string
+$bussiNumber = 4; // bussi number, integer
+$soiduKestvus = 0.8; // sõidu kestvus, 0.8 tundi, float
