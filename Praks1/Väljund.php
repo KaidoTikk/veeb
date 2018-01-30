@@ -21,3 +21,5 @@ $eesNimi = "Kaido"; // Eesnimi, string
 $pereNimi = "Tikk"; // Perenimi, string
 $bussiNumber = 4; // bussi number, integer
 $soiduKestvus = 0.8; // sõidu kestvus, 0.8 tundi, float
+//konstant defineerimine
+define('NUMBER_P1', 3,14);
