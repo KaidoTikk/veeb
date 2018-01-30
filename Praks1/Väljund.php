@@ -11,3 +11,8 @@
  * realine
  * kommentaar
  */
+//Väljastamine
+// echo või print abil
+echo "Aine - Veebiprogrameerimine"; // käsu lõpp - ;
+print "<br>"; // Reavahetus br ehk break
+print "Valikaine";
