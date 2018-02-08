@@ -32,12 +32,23 @@ function soogihind($taishind, $sooduskaart = false, $kasoledopilane = false){
 // 2. real on opetaja andmed
 // 3. real on kulastaja andmed
 $kasutajad = array(
-    array(true,true),
-    array(true, false),
-    array(false, false)
+    array(
+        'roll' => 'opilane',
+        'soodus' => true,
+        'opilasekaart' => true
+    ),
+    array(
+        'roll' => 'opetaja',
+        'soodus' => true,
+        'opilasekaart' => false),
+    array(
+        'roll' => 'kulaline',
+        'soodus' => false,
+        'opilasekaart' => false
+    )
 );
 // vaatme kasutajad massiivi läbi
-// fort (tjm defineerimine; tjm kehtivuse kontroll, tjm suurendamine/vähendamine
+// for (tjm defineerimine; tjm kehtivuse kontroll, tjm suurendamine/vähendamine
 for($i = 0; $i < count($kasutajad); $i++)
 {
     $soogihind = soogihind( 2.65,$kasutajad[$i][0],$kasutajad[$i][1]);
