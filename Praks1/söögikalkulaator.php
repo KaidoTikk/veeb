@@ -5,15 +5,33 @@
  * Date: 30.01.2018
  * Time: 11:28
  */
-//söögihind
-$soogihind = 2.55; // Hind, EUR
-$soodustuseProtsent = 15; //
-$opilasetoetus = 1.80; // EUR
-//arvestus
-if($soogihind > 0 and $soodustuseProtsent > o and $opilasetoetus > 0){
-    $soodushind =  $soogihind * ((100 - $soodustuseProtsent) / 100);
-    $hindopilasele = $soodushind - $opilasetoetus;
-    echo 'Söögi hind opilasele = '.$hindopilasele.'<br />';
-} else {
-    echo 'Andmed ei ole täielikud <br />';
-}
+// funktsioon soodustuse arvutamiseks
+/**
+ * @param $taishind
+ * @param $sooduskaart
+ * @param $kasoledopilane
+ */
+function soogihind($taishind, $sooduskaart, $kasoledopilane){
+// funktsiooni algus
+    $soodustuseProtsent = 15; // %
+    $opilasetoetus = 1.80; // EUR
+    $soodushind = $taishind;
+    if ($sooduskaart){
+        $soodushind =  $taishind * ((100 - $soodustuseProtsent) / 100);
+    }
+    if($kasoledopilane){
+        $soodushind = $soodushind - $opilasetoetus;
+        // $soodushind - $opilasetoetus; // - op
+    }
+    return $soodushind;
+}//funktsioooni lõpp
+// kutsume funktsiooni tööle
+//kui oled õpilane
+$soogihind = soogihind( 2.65,  true,  true);
+echo 'Prae hind õpilasele = '.round($soogihind, 2).'<br />';
+//Prae hind omanikule
+$soogihind = soogihind( 2.65,  true,  false);
+echo 'Prae hind omanikule = '.round($soogihind, 2).'<br />';
+//Prae täishind
+$soogihind = soogihind( 2.65,  false,  false);
+echo 'Prae hind = '.round($soogihind, 2).'<br />';
