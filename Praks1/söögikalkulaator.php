@@ -11,20 +11,8 @@
  * @param $sooduskaart
  * @param $kasoledopilane
  */
-function soogihind($taishind, $sooduskaart = false, $kasoledopilane = false){
-// funktsiooni algus
-    $soodustuseProtsent = 15; // %
-    $opilasetoetus = 1.80; // EUR
-    $soodushind = $taishind;
-    if ($sooduskaart){
-        $soodushind =  $taishind * ((100 - $soodustuseProtsent) / 100);
-    }
-    if($kasoledopilane){
-        $soodushind = $soodushind - $opilasetoetus;
-        // $soodushind - $opilasetoetus; // - op
-    }
-    return $soodushind;
-}//funktsioooni lõpp
+require_once 'Funktsioonid.php'; // ligipääs Funktsiooni.php faili
+
 //Testimiseks paneme erinevad väärtused paika
 // kasutame selleks  massiivi kujul(sooduskarrt, kasoledõpilane)
 // 1. real on opilase andmed
