@@ -25,7 +25,6 @@ function soogihind($taishind, $sooduskaart = false, $kasoledopilane = false){
     }
     return $soodushind;
 }//funktsioooni lõpp
-
 //Testimiseks paneme erinevad väärtused paika
 // kasutame selleks  massiivi kujul(sooduskarrt, kasoledõpilane)
 // 1. real on opilase andmed
@@ -40,7 +39,8 @@ $kasutajad = array(
     array(
         'roll' => 'opetaja',
         'soodus' => true,
-        'opilasekaart' => false),
+        'opilasekaart' => false
+    ),
     array(
         'roll' => 'kulaline',
         'soodus' => false,
@@ -49,8 +49,13 @@ $kasutajad = array(
 );
 // vaatme kasutajad massiivi läbi
 // for (tjm defineerimine; tjm kehtivuse kontroll, tjm suurendamine/vähendamine
-for($i = 0; $i < count($kasutajad); $i++)
+foreach ($kasutajad as $kasutajad){
+    $soogihind = soogihind( 2.65,$kasutajad['soodustus'],$kasutajad['opilasekaart']);
+    echo 'Prae hind ' . $kasutajad['roll'] . ' = ' .round($soogihind, 2).'<br />';
+    }
+/*for($i = 0; $i < count($kasutajad); $i++)
 {
     $soogihind = soogihind( 2.65,$kasutajad[$i][0],$kasutajad[$i][1]);
     echo 'Prae hind = '.round($soogihind, 2).'<br />';
 }
+*/
