@@ -47,12 +47,40 @@ $kasutajad = array(
         'opilasekaart' => false
     )
 );
+$praed = array(
+    array(
+        'Nimetus' => 'Šnitsel',
+        'Kirjeldus' => 'šnitsel sealihast, lisand, kaste, salat, leib',
+        'Hind' => 2.68
+    ),
+    array(
+        'Nimetus' => 'Seapraad',
+        'Kirjeldus' => 'seapraad, lisand, kaste, salat, leib',
+        'Hind' => 2.65
+    ),
+    array(
+        'Nimetus' => 'Hakklihapallid tomatikastmes',
+        'Kirjeldus' => 'hakklihapall 2 tk, lisand, kaste, salat, leib',
+        'Hind' => 2.30
+    ),
+    array(
+        'Nimetus' => 'Hakklihapallid tomatikastmes 1/2',
+        'Kirjeldus' => 'hakklihapall, lisand, kaste, salat, leib',
+        'Hind' => 1.30
+    )
+);
+foreach ($praed as $praed){
+   echo '<h1>'.$praed['Nimetus'].'</h1>';
+    echo '<code>'.$praed['Kirjeldus'].'</code><br />';
+    echo '<ul>';
+}
 // vaatme kasutajad massiivi läbi
 // for (tjm defineerimine; tjm kehtivuse kontroll, tjm suurendamine/vähendamine
 foreach ($kasutajad as $kasutajad){
     $soogihind = soogihind( 2.65,$kasutajad['soodustus'],$kasutajad['opilasekaart']);
     echo 'Prae hind ' . $kasutajad['roll'] . ' = ' .round($soogihind, 2).'<br />';
     }
+    echo '</ul>';
 /*for($i = 0; $i < count($kasutajad); $i++)
 {
     $soogihind = soogihind( 2.65,$kasutajad[$i][0],$kasutajad[$i][1]);
