@@ -69,18 +69,16 @@ $praed = array(
         'Hind' => 1.30
     )
 );
-foreach ($praed as $praed){
-   echo '<h1>'.$praed['Nimetus'].'</h1>';
-    echo '<code>'.$praed['Kirjeldus'].'</code><br />';
+foreach ($praed as $praad){
+    echo '<h1>'.$praad['Nimetus'].'</h1>';
+    echo '<code>'.$praad['Kirjeldus'].'</code><br />';
     echo '<ul>';
-}
-// vaatme kasutajad massiivi läbi
-// for (tjm defineerimine; tjm kehtivuse kontroll, tjm suurendamine/vähendamine
-foreach ($kasutajad as $kasutajad){
-    $soogihind = soogihind( 2.65,$kasutajad['soodustus'],$kasutajad['opilasekaart']);
-    echo 'Prae hind ' . $kasutajad['roll'] . ' = ' .round($soogihind, 2).'<br />';
+    foreach ($kasutajad as $kasutaja){
+        $soogiHind = soogiHind($praad['Hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']);
+        echo '<dd>Prae hind '.$kasutaja['roll'].' = '.round($soogiHind, 2).' €</dd><br />';
     }
     echo '</ul>';
+}
 /*for($i = 0; $i < count($kasutajad); $i++)
 {
     $soogihind = soogihind( 2.65,$kasutajad[$i][0],$kasutajad[$i][1]);
