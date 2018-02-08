@@ -14,6 +14,11 @@
 require_once 'Funktsioonid.php'; // ligipääs Funktsiooni.php faili
 //väljastame html-i vormi
 loeVormFailist('Vorm.html');
+
+var_dump($_POST);
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
 //Testimiseks paneme erinevad väärtused paika
 // kasutame selleks  massiivi kujul(sooduskarrt, kasoledõpilane)
 // 1. real on opilase andmed
