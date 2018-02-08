@@ -28,18 +28,18 @@ function soogihind($taishind, $sooduskaart = false, $kasoledopilane = false){
 
 //Testimiseks paneme erinevad väärtused paika
 // kasutame selleks  massiivi kujul(sooduskarrt, kasoledõpilane)
-$opilane = array(true,true); // olemas soodus - $opilane[0] kui ka õpilane
-$opetaja = array(true, false); // olemas soodus aga õpilane ei ole
-$kulaline = array(false, false); // pole soodustust ega pole õpilane
-
-
-// kutsume funktsiooni tööle
-//kui oled õpilane
-$soogihind = soogihind( 2.65,$opilane[0],$opilane[1]);
-echo 'Prae hind õpilasele = '.round($soogihind, 2).'<br />';
-//Prae hind omanikule
-$soogihind = soogihind( 2.65, $opetaja[0], $opetaja[1]);
-echo 'Prae hind omanikule = '.round($soogihind, 2).'<br />';
-//Prae täishind
-$soogihind = soogihind( 2.65, $kulaline[0], $kulaline[1]);
-echo 'Prae hind = '.round($soogihind, 2).'<br />';
+// 1. real on opilase andmed
+// 2. real on opetaja andmed
+// 3. real on kulastaja andmed
+$kasutajad = array(
+    array(true,true),
+    array(true, false),
+    array(false, false)
+);
+// vaatme kasutajad massiivi läbi
+// fort (tjm defineerimine; tjm kehtivuse kontroll, tjm suurendamine/vähendamine
+for($i = 0; $i < count($kasutajad); $i++)
+{
+    $soogihind = soogihind( 2.65,$kasutajad[$i][0],$kasutajad[$i][1]);
+    echo 'Prae hind = '.round($soogihind, 2).'<br />';
+}
