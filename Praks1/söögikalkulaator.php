@@ -68,6 +68,10 @@ foreach ($praed as $praad){
     echo '<code>'.$praad['Kirjeldus'].'</code><br />';
     echo '<ul>';
     foreach ($kasutajad as $kasutaja){
+        if (empty($_POST){
+            $_POST['roll'] = "külalisele";
+        }
+        if ($_POST)
         $soogiHind = soogiHind($praad['Hind'], $kasutaja['soodus'], $kasutaja['opilaskaart']);
         echo '<dd>Prae hind '.$kasutaja['roll'].' = '.round($soogiHind, 2).' €</dd><br />';
     }
