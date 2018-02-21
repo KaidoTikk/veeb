@@ -5,11 +5,13 @@
  * Date: 14.02.2018
  * Time: 13:37
  */
+$katsetearv = $_POST['katsetearv'];
+$katsetearv = isset($katsetearv) ? ++$katsetearv : 0;
 echo '
      <form method="post" action="'.$_SERVER['PHP_SELF'].'">
         Sisesta arv vahemikus 0-50: 
-       Sisesta arv vahemikus 1-50: 
          <input type="number" name="kasutajaArv"><br />
+         <input type="hidden" name="katsetearv" value="'.$katsetearv.'">
          <input type="submit" value="Kontrolli">
      </form>
  ';
@@ -30,12 +32,13 @@ if(!empty($_POST['kasutajaArv'])){
    if ($kasutajaArv < $serveriArv) {
                echo 'Pakutud väärtus on väiksem<br />';
    }
-  if (abs($kasutajaArv-$serveriArv)<=5){
-              if($kasutajaArv == $serveriArv){
-                       echo 'Arvasid ära!<br />';
-          echo 'Arv on '.$serveriArv.'<br />';
-         exit;
-      }
+    if (abs($kasutajaArv-$serveriArv)<=5){
+        if($kasutajaArv == $serveriArv){
+            echo 'Arvasid ära!<br />';
+            echo 'Arv on '.$serveriArv.'<br />';
+            echo 'Arvu ära aramiseks läks '.$katsetearv.' korda<br />';
+            exit;
+        }
       echo 'Oled juba hästi lähedal<br />';
    }
 } else {
