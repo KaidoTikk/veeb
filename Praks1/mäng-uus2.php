@@ -42,7 +42,7 @@ if(!isset($_SESSION['serveriArv'])){
              echo 'Arvasid ära!<br />';
              echo 'Arv on '.$serveriArv.'<br />';
              echo 'Arvu ära aramiseks läks '.$katseteArv.' korda<br />';
-                        unset($_SESSION['katseteArv']);
+             unset($_SESSION['katseteArv']);
              exit;
          }
          echo 'Oled juba hästi lähedal<br />';
