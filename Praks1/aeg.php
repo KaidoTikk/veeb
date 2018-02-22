@@ -7,33 +7,40 @@
  */
 // Päeva funktsiooni korda seadmine
 function paev(){
+    $hetkePaev = date('j', time());
     $valik = '<select name="paev">';
     for($paev = 1; $paev < 32; $paev++){
+        if($paev == $hetkePaev){
+            $valik = $valik.'<option value="'.$paev.'" selected>'.$paev.'</option>';
+        }
         $valik = $valik.'<option value="'.$paev.'">'.$paev.'</option>';
     }
     $valik = $valik.'</select>';
     return $valik;
 }
-// Kuu funktsiooni korda seadmine
 function kuu(){
+//    $kuud = array('Jaanuar', 'Veebruar', 'Märts', 'Aprill', 'Mai', 'Juuni', 'Juuli', 'August', 'September', 'Oktoober', 'November', 'Detsember');
     $kuud = array();
     for($i = 1; $i < 13; $i++){
         $kuuNimi = date('F', mktime(0, 0, 0, $i));
         $kuuNumber = date('m', mktime(0, 0, 0, $i));
         $kuud[$kuuNumber] = $kuuNimi;
     }
+    $hetkeKuu = date('m', time());
     $valik = '<select name="kuu">';
     foreach($kuud as $kuuNumber => $kuuNimi){
+        if($kuuNumber == $hetkeKuu){
+            $valik = $valik.'<option value="'.$kuuNumber.'" selected>'.$kuuNimi.'</option>';
+        }
         $valik = $valik.'<option value="'.$kuuNumber.'">'.$kuuNimi.'</option>';
     }
     $valik = $valik.'</select>';
     return $valik;
 }
-// Aasta funktsiooni korda seadmine
 function aasta(){
     $hetkeAasta = date('Y', time());
     $valik = '<select name="aasta">';
-    for($aasta = 1925; $aasta < 2040; $aasta++){
+    for($aasta = 1920; $aasta < 2040; $aasta++){
         if($aasta == $hetkeAasta){
             $valik = $valik.'<option value="'.$aasta.'" selected>'.$aasta.'</option>';
         }
@@ -74,4 +81,3 @@ function registreerimisVorm(){
     ';
 }
 registreerimisVorm();
-
