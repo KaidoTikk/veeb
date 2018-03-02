@@ -5,7 +5,7 @@
  * Date: 22.02.2018
  * Time: 13:30
  */
-require_once 'ab_konf.php';
+require_once 'ab_k.php';
 // ühendus ab serveriga
 function yhendus(){
     $ab_yhendus = mysqli_connect(AB_HOST, AB_USER, AB_PASS, AB_NIMI);
@@ -19,14 +19,15 @@ function yhendus(){
     }
     return $ab_yhendus;
 }
+// päringute edastamine andmebaasi
 function saadaAndmed($ab_yhendus, $sql){
     $tulemus = mysqli_query($ab_yhendus, $sql);
-    if ($tulemus == false){
+    if($tulemus ==  false){
         echo 'Probleem päringuga '.$sql.' <br />';
         echo mysqli_error($ab_yhendus);
         echo mysqli_errno($ab_yhendus);
         return false;
-    } else (
-        return $tulemus;
-    )
+    } else {
+        return $tulemus; // true või andmed
+    }
 }

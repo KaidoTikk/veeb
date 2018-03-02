@@ -6,7 +6,7 @@
  * Time: 13:07
  */
 // võtame kasutusele andmebaasitöötlusfunktsioonid
-require_once 'ab_fn.php';
+require_once 'ab_fnk.php';
 echo '<pre>';
 print_r($_POST);
 echo '</pre>';
